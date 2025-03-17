@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>field clinic</title>
+{% endblock %}
+
+
+
+
+{% block body %}
+
+    <form action="/field_clinic" method="POST">
+        <input type="text" name="name" id="name">
+        <input type="submit" value="submit">
+    </form>
+    {% for patient in data %}
+    <p>
+        {{patient.name}}
+        {{patient.age}}
+        {{patient.symptoms}}
+    </p>
+    {% endfor %}
+
+
+
+{% endblock %}
