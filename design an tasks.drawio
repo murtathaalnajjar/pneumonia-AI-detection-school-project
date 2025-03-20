@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2025-03-19T12:19:05.586Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="ls-YjAJmpOVosgA7Rbvm" version="23.0.2" type="device">
+<mxfile host="Electron" modified="2025-03-20T10:10:31.100Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="vIkhPB8rXIJonNg9hnPy" version="23.0.2" type="device">
   <diagram name="Page-1" id="VmJEM63dlZ8Z077wUYMp">
-    <mxGraphModel dx="5491" dy="2297" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="5493" dy="2554" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -501,22 +501,6 @@
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-5" value="Vertical Container" style="swimlane;whiteSpace=wrap;html=1;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="3248" y="316" width="2290" height="840" as="geometry" />
         </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-47" target="qdkJfRviQrZeMFLgg1Ej-56" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-7" value="2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="qdkJfRviQrZeMFLgg1Ej-6" vertex="1" connectable="0">
-          <mxGeometry x="-0.032" y="2" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-8" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-47" target="qdkJfRviQrZeMFLgg1Ej-50" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-9" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="qdkJfRviQrZeMFLgg1Ej-8" vertex="1" connectable="0">
-          <mxGeometry x="0.2481" y="3" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-10" value="START HERE" style="rounded=1;whiteSpace=wrap;html=1;fontSize=50;fontStyle=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" parent="1" vertex="1">
           <mxGeometry x="-3102" y="-1458" width="482" height="128" as="geometry" />
         </mxCell>
@@ -556,49 +540,6 @@
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-36" value="Ayan" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Person.svg;" parent="1" vertex="1">
           <mxGeometry x="-3236.5" y="-1046" width="25.16" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-46" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-2941" y="874" width="458" height="187" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-47" value="&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Part 4:&lt;/font&gt;&lt;/h3&gt;&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font style=&quot;font-weight: normal;&quot; face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Implementation&lt;/font&gt;&lt;br&gt;&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;align=center;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" parent="qdkJfRviQrZeMFLgg1Ej-46" vertex="1">
-          <mxGeometry width="458" height="142.51036070606273" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-48" value="42 points" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#e51400;strokeColor=#B20000;fontColor=#ffffff;" parent="qdkJfRviQrZeMFLgg1Ej-46" vertex="1">
-          <mxGeometry x="49.07142857142857" y="142.510360706063" width="184.96153846153845" height="44.48963929393701" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-49" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-3314" y="1198" width="379" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-50" value="&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Part 4.1:&lt;/font&gt;&lt;/h3&gt;&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font style=&quot;font-weight: normal;&quot; face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Machine learning model&lt;/font&gt;&lt;br&gt;&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;align=center;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" parent="qdkJfRviQrZeMFLgg1Ej-49" vertex="1">
-          <mxGeometry width="379" height="114.31312356101289" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-51" value="12 points" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#b1ddf0;strokeColor=#10739e;" parent="qdkJfRviQrZeMFLgg1Ej-49" vertex="1">
-          <mxGeometry x="40.60714285714286" y="114.3131235610131" width="153.05769230769232" height="35.68687643898691" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-55" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-2810" y="1651" width="272" height="121" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-56" value="&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Part 4.3 evidece of github:&lt;/font&gt;&lt;/h3&gt;&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font style=&quot;font-weight: normal;&quot; face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;User stories implemented&lt;/font&gt;&lt;br&gt;&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;align=center;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" parent="qdkJfRviQrZeMFLgg1Ej-55" vertex="1">
-          <mxGeometry width="272" height="92.21258633921707" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-57" value="6 points" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#b1ddf0;strokeColor=#10739e;" parent="qdkJfRviQrZeMFLgg1Ej-55" vertex="1">
-          <mxGeometry x="29.142857142857142" y="92.21258633921724" width="109.84615384615384" height="28.787413660782768" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-58" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-47" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-2352.3148998656543" y="1222" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-59" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="qdkJfRviQrZeMFLgg1Ej-58" vertex="1" connectable="0">
-          <mxGeometry x="-0.0191" y="-4" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-60" value="Use screenshots/logs supported by brief descriptive text (&lt;b style=&quot;font-size: 11px;&quot;&gt;max &lt;/b&gt;200 words) to provide evidence of the tools your team has used" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fontStyle=0;glass=0;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
-          <mxGeometry x="-3036" y="1751" width="236" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-61" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-56" target="qdkJfRviQrZeMFLgg1Ej-60" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-63" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-67" target="qdkJfRviQrZeMFLgg1Ej-69" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -609,7 +550,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-67" value="create flask &amp;amp; sqlite web app" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;glass=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-1695" y="-304.0000000000002" width="173" height="52" as="geometry" />
+          <mxGeometry x="-1631" y="-342.0000000000002" width="173" height="52" as="geometry" />
         </mxCell>
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-69" value="setup flask and the API" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontStyle=0;glass=0;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="1" vertex="1">
           <mxGeometry x="-1757" y="-128.98000000000002" width="169" height="53" as="geometry" />
@@ -625,47 +566,6 @@
         </mxCell>
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-78" value="Shehroz" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Person.svg;" parent="1" vertex="1">
           <mxGeometry x="-1304" y="-119.48000000000002" width="25.16" height="34" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-87" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-92" target="qdkJfRviQrZeMFLgg1Ej-94" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-88" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-92" target="qdkJfRviQrZeMFLgg1Ej-96" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-89" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-92" target="qdkJfRviQrZeMFLgg1Ej-95" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-90" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-92" target="qdkJfRviQrZeMFLgg1Ej-97" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-91" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="qdkJfRviQrZeMFLgg1Ej-90" vertex="1" connectable="0">
-          <mxGeometry x="0.0134" y="-5" relative="1" as="geometry">
-            <mxPoint y="-1" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-92" value="Produce a Jupyter Notebook to train a machine learning model to recognise the different classes in the provided dataset (see case study, under units)." style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;align=left;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-3809" y="1236.3900000000003" width="307" height="115.22" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-93" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-50" target="qdkJfRviQrZeMFLgg1Ej-92" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-94" value="demonstrate a comparison of different machine learning algorithms" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;align=left;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-4287" y="1224" width="259" height="98" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-95" value="demonstrate plotting (in particular confusion matrices)," style="whiteSpace=wrap;html=1;fontSize=16;align=left;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-4235.57" y="1482.9999999999986" width="218.5" height="93.72" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-96" value="demonstrate hyper-parameter optimisation" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;align=left;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-4268.07" y="1368.999999999999" width="251" height="89" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-97" value="Study/research the subject and create tasks base on your research" style="whiteSpace=wrap;html=1;fontSize=16;align=left;fillColor=#e51400;strokeColor=#B20000;rounded=0;fontColor=#ffffff;" parent="1" vertex="1">
-          <mxGeometry x="-3852" y="1073" width="234" height="95" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-98" value="Maryam" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Person.svg;" parent="1" vertex="1">
-          <mxGeometry x="-3788" y="1003.0300000000002" width="25.16" height="34" as="geometry" />
-        </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-101" value="Raza" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Person.svg;" parent="1" vertex="1">
-          <mxGeometry x="-3733" y="1003.0300000000002" width="25.16" height="34" as="geometry" />
         </mxCell>
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-107" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="qdkJfRviQrZeMFLgg1Ej-102" target="qdkJfRviQrZeMFLgg1Ej-105" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -715,10 +615,13 @@
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-134" value="&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Part 4.1:&lt;/font&gt;&lt;/h3&gt;&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font style=&quot;font-weight: normal;&quot; face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Machine learning model&lt;/font&gt;&lt;br&gt;&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;align=center;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" parent="1" vertex="1">
           <mxGeometry x="-2365" y="-619" width="309" height="232" as="geometry" />
         </mxCell>
+        <mxCell id="fF1zra5sz4Y6synSHORO-2" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="qdkJfRviQrZeMFLgg1Ej-135" target="qdkJfRviQrZeMFLgg1Ej-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-135" value="&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Part 4.2:&lt;/font&gt;&lt;/h3&gt;&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font style=&quot;font-weight: normal;&quot; face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;User stories implemented&lt;/font&gt;&lt;br&gt;&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;align=center;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" parent="1" vertex="1">
           <mxGeometry x="-1706.92" y="-626.5" width="317.92" height="227.5" as="geometry" />
         </mxCell>
-        <mxCell id="qdkJfRviQrZeMFLgg1Ej-136" value="&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Part 4.3 evidece of github:&lt;/font&gt;&lt;/h3&gt;&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font style=&quot;font-weight: normal;&quot; face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;User stories implemented&lt;/font&gt;&lt;br&gt;&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;align=center;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" parent="1" vertex="1">
+        <mxCell id="qdkJfRviQrZeMFLgg1Ej-136" value="&lt;h3 style=&quot;border-color: var(--border-color); margin: 6px 0px; line-height: 1.5; text-rendering: optimizelegibility;&quot;&gt;&lt;font face=&quot;Lato Extended, Lato, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;Part 4.3 evidece of github:&lt;/font&gt;&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;align=center;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" parent="1" vertex="1">
           <mxGeometry x="-1363" y="-611.5" width="260" height="217" as="geometry" />
         </mxCell>
         <mxCell id="qdkJfRviQrZeMFLgg1Ej-147" value="Maryam" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Person.svg;" parent="1" vertex="1">
