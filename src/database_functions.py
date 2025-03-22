@@ -3,7 +3,10 @@ import sqlite3
 
 class Xray_database:
 
-    def create_database_and_table():
+    def __init__(self):
+        pass
+
+    def create_database_and_table(self):
         conn = sqlite3.connect('database.db'); cursor = conn.cursor()
         cursor.execute("""
 
@@ -24,12 +27,14 @@ class Xray_database:
 
         """); conn.commit()
 
-    def fetch_list():
+    def fetch_list(self):
         # TODO: FETCH DATA FROM DATABASE AS A LIST OF OBJECTS
         return "list of objects"
     
-    def add_record(data): 
+    def add_record(self, full_name, age, symptoms, img): 
         pass # TODO:
     
-    def prescribe_for_record(record, data):
+    def prescribe_for_record(self,record, actual_pneumonia_result, prescribed):
         pass # TODO:
+
+

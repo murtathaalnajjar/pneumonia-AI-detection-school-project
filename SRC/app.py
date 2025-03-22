@@ -4,10 +4,8 @@
 
 # boilerplate
 from flask import Flask, jsonify, request, render_template, redirect
-from database_functions import Xray_database
-import sqlite3
-app = Flask(__name__)
-db = Xray_database()
+from database_functions import Xray_database;
+import sqlite3; app = Flask(__name__); db = Xray_database()
 db.create_database_and_table()
 
 
@@ -30,16 +28,20 @@ def main(): return render_template('index.html')
 
 ## clinic route
 from ai_model import AI_pneumonia_check
-@app.route('/field_clinic', methods=['GET', 'POST'])
-def field_clinic(): 
+@app.route('/clinic', methods=['GET', 'POST'])
+def clinic(): 
     if request.method == "GET":
         data = db.fetch_list()
-        return render_template('field_clinic.html', data=data)
+        return render_template('clinic.html', data=data)
 
     if request.method == "POST":
-        data = request.form.to_dict()
-
-        return redirect('/field_clinic')
+        request
+        # TODO:
+        # extract image from request
+        # convert image to blob
+        # add record to database
+        db.add_record(...)
+        return redirect('/clinic')
 
         
         
@@ -56,8 +58,12 @@ def hospital():
         return render_template('hospital.html', data=data)
 
     if request.method == "POST":
-        data = request.form.to_dict()
-        return redirect('/field_clinic')
+        data = request
+        record_number = 0
+        actual_pneumonia_result = '...' # 'yes' of True, 'no' if False
+        prescribed = "..."
+        db.prescribe_for_record(record_number, )
+        return redirect('/clinic')
 
         
         
