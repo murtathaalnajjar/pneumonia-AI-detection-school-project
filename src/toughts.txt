@@ -8,23 +8,3 @@ full responsibility for part 5 (testing)
 write sqlite statments and querys in file
 
 write HTML for the pages send them to me I will add the Jinja2 bit
-
-
-
-based on the database section in the design (install from github)
-Page 1:
-form
-list of patients
-When clicking a patient:
-Show patient information
-
-Page 2:
-List of patients
-When clicking a patient:
-Show patient information
-Form:
-has penuomia (checkbox)
-Prescription (textarea)
-
-
-Place fake data in
