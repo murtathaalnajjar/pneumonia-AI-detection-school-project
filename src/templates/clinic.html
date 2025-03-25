@@ -8,24 +8,30 @@
 
 {% block body %}
 
-    <form action="/clinic" method="post">
+    <form action="/clinic" enctype="multipart/form-data" method="post">
     <fieldset>
         <legend>patient information</legend>
-        <label for="text">name</label>
-        <input type="text" name="name" id="text">
-        <label for="img">imge</label>
-        <input type="file" name="img" id="img">
+
+        <label>name:
+            <input name="name">
+        </label>
+
+        <label>age:
+            <input type="number" name="age">
+        </label>
+
+        <label>symptoms:
+            <input name="symptoms"></input>
+        </label>
+
+        <label>chest xray:
+            <input type="file" name="xray">
+        </label>
+
+
         <button type="submit">submit</button>
     </fieldset>
     </form>
-
-    {% for patient in data %}
-    <p>
-        {{patient.name}}
-        {{patient.age}}
-        {{patient.symptoms}}
-    </p>
-    {% endfor %}
 
 
 
