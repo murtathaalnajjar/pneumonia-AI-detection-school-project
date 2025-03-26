@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block head %}
-    <title>field clinic</title>
+    <title>clinic</title>
 {% endblock %}
 
 
@@ -13,25 +13,59 @@
         <legend>patient information</legend>
 
         <label>name:
-            <input name="name">
+            <input required name="name">
         </label>
 
         <label>age:
-            <input type="number" name="age">
+            <input required type="number" name="age">
         </label>
 
         <label>symptoms:
-            <input name="symptoms"></input>
+            <input required name="symptoms"></input>
         </label>
 
         <label>chest xray:
-            <input type="file" name="xray">
+            <input required type="file" name="xray">
         </label>
 
 
         <button type="submit">submit</button>
     </fieldset>
     </form>
+
+
+    <h1>Patient Records</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date/Time</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Symptoms</th>
+                <th>Algorithm Result</th>
+                <th>Actual result</th>
+                <th>Prescription</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            {% for record in data %}
+                <tr>
+                    <td>{{ record[1] }}</td>
+                    <td>{{ record[2] }}</td>
+                    <td>{{ record[3] }}</td>
+                    <td>{{ record[4] }}</td>
+                    <td>{{ record[6] }}</td>
+                    <td>{{ record[7] }}</td>
+                    <td>{{ record[8] }}</td>
+                    <td>{{ record[9] }}</td>
+                    <td>
+                        <img src="data:image/jpeg;base64,  {{record[5]}}" alt="X-ray" width="100">
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
 
 
 

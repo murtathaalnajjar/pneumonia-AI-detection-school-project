@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Hospital</title>
+
+{% endblock %}
+
+
+
+{% block body %}
+
+
+<section>
+
+    <div id="PC">
+    </div>
+
+    <div>
+    <h1>Patient Records</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date/Time</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Symptoms</th>
+                <th>Algorithm Result</th>
+                <th>Actual result</th>
+                <th>Prescription</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+
+        </tbody>
+    </table>
+    </div>
+
+
+    <!-- prescribe script -->
+    <script>
+        function set(record_id, name) {
+            let div = document.querySelector('#PC')
+            // div.innerHTML = "prescribe for " + record_id
+            div.innerHTML = '<form action="/hospital" method="post">' +
+                `<h2>prescribe for ${name} </h2>` +
+                `<input type="hidden" name="record_id" value="${record_id}">` +
+                '<label>prescription: <input name="prescription"></label>' +
+                '<select name="result">' +
+                '    <option value="yes">yes</option>' +
+                '    <option value="no">no</option>' +
+                '</select>' +
+                '<button type="submit">update</button>' +
+                '</form>'
+
+        }
+    </script>   
+
+    <!-- dynamic update list script -->
+     <script>
+        const tbody = document.querySelector('#tbody')
+        function render_list() {
+        fetch('/get_list').then(response => response.json()).then(data => {
+            tbody.innerHTML = ''
+            data.forEach(record => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${record[1]}</td>
+                        <td>${record[2]}</td>
+                        <td>${record[3]}</td>
+                        <td>${record[4]}</td>
+                        <td>${record[6]}</td>
+                        <td>${record[7]}</td>
+                        <td>${record[8]}</td>
+                        <td>
+                            <img src="data:image/jpeg;base64,  ${record[5]}" alt="X-ray" width="100">
+                        </td>
+                        <td>
+                            <button onclick="set( ${record[0]},'${record[2]}' )">prescribe</button>
+                        </td>
+                    </tr>
+                `
+            })
+        })
+        }
+        render_list();
+        setInterval(render_list, 2000);
+
+     </script>
+
+
+</section>
+
+{% endblock %}

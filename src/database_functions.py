@@ -1,5 +1,6 @@
 import sqlite3
 from datetime import datetime
+import base64
 
 
 ## datetime without milliseconds function taken from stackoverflow cuz i dont have time
@@ -35,14 +36,21 @@ class Xray_database:
         self.conn.commit()
 
     def fetch_list(self):
-        rows = self.cursor.execute(f"SELECT * FROM {self.table_name}")
+        rows = self.cursor.execute(f"SELECT id,datetime,name,age,symptoms,img,algorithm_result,actual_result,prescribed FROM {self.table_name}")
         data = rows.fetchall()
-        return data
+        # convert blobs to base64
+        data_with_proper_img_format = []
+        for record in data:
+            modified_record = list(record)
+            modified_record[5] = base64.b64encode(modified_record[5]).decode('utf-8')
+            data_with_proper_img_format.append(tuple(modified_record))
+        # return modified data
+        return data_with_proper_img_format
     
     def add_record(self, name, age, symptoms, img): 
         try:
             self.cursor.execute(f"INSERT INTO {self.table_name} (datetime, name, age, symptoms, img, algorithm_result) VALUES (?, ?, ?, ?, ?, ?)",
-                                (now(), name, age, symptoms, img, 'no')) # TODO: change the 'no'
+                                (now(), name, age, symptoms, img, 'N/A'))
             self.conn.commit()
         except sqlite3.Error as e:
             raise Exception(f"Failed to add record: {e}")

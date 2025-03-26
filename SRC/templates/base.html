@@ -12,37 +12,6 @@
 <body>
     {% block body %}{% endblock %}
 
-    <h1>Patient Records</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Date/Time</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Symptoms</th>
-                <th>Algorithm Result</th>
-                <th>Actual result</th>
-                <th>Prescription</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for record in data %}
-            <tr>
-                <td>{{ record[1] }}</td>
-                <td>{{ record[2] }}</td>
-                <td>{{ record[3] }}</td>
-                <td>{{ record[4] }}</td>
-                <td>{{ record[6] }}</td>
-                <td>{{ record[7] }}</td>
-                <td>{{ record[8] }}</td>
-                <td>
-                    <!-- this was done with ai. cuz idk -->
-                    <img src="data:image/jpeg;base64,{{ record[9] }}" alt="X-ray" width="100">
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 
 </body>
 </html>
