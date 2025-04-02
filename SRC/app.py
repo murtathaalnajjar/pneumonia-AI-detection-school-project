@@ -5,7 +5,7 @@
 # boilerplate
 from flask import Flask, jsonify, request, render_template, redirect
 from database_functions import Xray_database;
-app = Flask(__name__); db = Xray_database()
+app = Flask(__name__); db = Xray_database();db.create_database_and_table()
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
