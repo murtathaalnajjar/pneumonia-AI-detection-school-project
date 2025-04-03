@@ -36,7 +36,7 @@ class Xray_database:
         self.conn.commit()
 
     def fetch_list(self):
-        rows = self.cursor.execute(f"SELECT id,datetime,name,age,symptoms,img,algorithm_result,actual_result,prescribed FROM {self.table_name}")
+        rows = self.cursor.execute(f"SELECT id,datetime,name,age,symptoms,img,algorithm_result,actual_result,prescribed FROM {self.table_name} ORDER BY actual_result")
         data = rows.fetchall()
         # convert blobs to base64
         data_with_proper_img_format = []
@@ -62,4 +62,3 @@ class Xray_database:
             self.conn.commit()
         except sqlite3.Error as e:
             raise Exception(f"Failed to update record: {e}")
-

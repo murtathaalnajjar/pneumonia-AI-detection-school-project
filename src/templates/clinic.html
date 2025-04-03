@@ -47,24 +47,37 @@
                 <th>Prescription</th>
             </tr>
         </thead>
-        <tbody id="tbody">
-            {% for record in data %}
-                <tr>
-                    <td>{{ record[1] }}</td>
-                    <td>{{ record[2] }}</td>
-                    <td>{{ record[3] }}</td>
-                    <td>{{ record[4] }}</td>
-                    <td>{{ record[6] }}</td>
-                    <td>{{ record[7] }}</td>
-                    <td>{{ record[8] }}</td>
-                    <td>{{ record[9] }}</td>
-                    <td>
-                        <img src="data:image/jpeg;base64,  {{record[5]}}" alt="X-ray" width="100">
-                    </td>
-                </tr>
-            {% endfor %}
+        <tbody id="tbody"> </tbody>
 
-        </tbody>
+    <!-- dynamic update list script -->
+     <script>
+        const tbody = document.querySelector('#tbody');
+        function render_list() {
+        fetch('/get_list').then(response => response.json()).then(data => {
+            tbody.innerHTML = ''
+            data.reverse().forEach(record => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${record[1]}</td>
+                        <td>${record[2]}</td>
+                        <td>${record[3]}</td>
+                        <td>${record[4]}</td>
+                        <td>${record[6]}</td>
+                        <td>${record[7]}</td>
+                        <td>${record[8]}</td>
+                        <td>
+                            <img src="data:image/jpeg;base64,  ${record[5]}" alt="x-ray" width="100">
+                        </td>
+                    </tr>
+                `
+            })
+        })
+        }
+        render_list();
+        setInterval(render_list, 2000);
+
+     </script>
+
     </table>
 
 

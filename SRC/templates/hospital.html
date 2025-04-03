@@ -44,8 +44,8 @@
             div.innerHTML = '<form action="/hospital" method="post">' +
                 `<h2>prescribe for ${name} </h2>` +
                 `<input type="hidden" name="record_id" value="${record_id}">` +
-                '<label>prescription: <input name="prescription"></label>' +
-                '<select name="result">' +
+                '<label>prescription: <input required name="prescription"></label>' +
+                '<select required name="result">' +
                 '    <option value="yes">yes</option>' +
                 '    <option value="no">no</option>' +
                 '</select>' +
