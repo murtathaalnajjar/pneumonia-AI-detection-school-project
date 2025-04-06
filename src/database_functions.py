@@ -47,10 +47,10 @@ class Xray_database:
         # return modified data
         return data_with_proper_img_format
     
-    def add_record(self, name, age, symptoms, img): 
+    def add_record(self, name, age, symptoms, img, algorithm_result):
         try:
             self.cursor.execute(f"INSERT INTO {self.table_name} (datetime, name, age, symptoms, img, algorithm_result) VALUES (?, ?, ?, ?, ?, ?)",
-                                (now(), name, age, symptoms, img, 'N/A'))
+                                (now(), name, age, symptoms, img, algorithm_result))
             self.conn.commit()
         except sqlite3.Error as e:
             raise Exception(f"Failed to add record: {e}")

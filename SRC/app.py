@@ -3,7 +3,7 @@
 #########################
 
 # boilerplate
-from flask import Flask, jsonify, request, render_template, redirect
+from flask import Flask, request, render_template, redirect
 from database_functions import Xray_database;
 app = Flask(__name__); db = Xray_database();db.create_database_and_table()
 
@@ -55,11 +55,12 @@ def clinic():
         name = request.form.get('name')
         age = request.form.get('age')
         symptoms = request.form.get('symptoms')
-        img = request.files.get('xray')
+        img = request.files.get('xray') # hexadecimal format
+        algorithm_result = AI_pneumonia_check(img)
 
         if img:
             img_data = img.read()
-            db.add_record(name, age, symptoms, img_data)
+            db.add_record(name, age, symptoms, img_data, algorithm_result)
         
         return redirect('/clinic')
 

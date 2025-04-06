@@ -1,12 +1,15 @@
 
 
 #
-# @input: image
+# @input: image in hexadecimal format
 #
-# @output: True/False
+# @output: 'yes'/'no'
 #
 def AI_pneumonia_check(image):
+
+    return "WRITE THE CODE FOR THE ALGORITHM"
+
     if None:
-        return True
+        return 'yes'
     else:
-        return False
+        return 'no'
