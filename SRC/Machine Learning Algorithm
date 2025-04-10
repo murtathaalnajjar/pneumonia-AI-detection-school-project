@@ -1,1 +1,15 @@
+## drive mounting and data fetching
+
+
+# get current working directory
+import os
+print(os.getcwd())
+
+# mount the drive
+from google.colab import drive
+drive.mount('/content/drive')
+
+data_dir = '/content/drive/MyDrive/ChestXRaySplit' #@param {type:"string"}
+
+
 
