@@ -13,3 +13,463 @@ data_dir = '/content/drive/MyDrive/ChestXRaySplit' #@param {type:"string"}
 
 
 
+
+
+# Import Libraries
+
+import numpy as np               # used for representing data as arrays
+import matplotlib.pyplot as plt  # used for plotting
+
+import tensorflow as tf         # used for deep learning functionalities
+from tensorflow import keras
+
+from sklearn.metrics import confusion_matrix # used for plotting confusdion matix
+from PIL import Image
+import os
+import shutil
+import random
+
+
+
+
+
+
+# Train test validation data split
+
+original_dataset_dir = '/content/drive/MyDrive/ChestXRay'
+base_dir = '/content/drive/MyDrive/ChestXRaySplit'  # where split data will go
+
+# Ratios for train/val/test
+train_ratio = 0.7
+val_ratio = 0.15
+test_ratio = 0.15
+
+# Class names in uppercase (as per your folder names)
+categories = ['PNEUMONIA', 'NORMAL']
+
+# Create directories
+for split in ['train', 'val', 'test']:
+    for category in categories:
+        path = os.path.join(base_dir, split, category)
+        os.makedirs(path, exist_ok=True)
+
+# Function to split and copy files
+def split_and_copy(category):
+    src_dir = os.path.join(original_dataset_dir, category)
+
+    # List only image files (basic check based on file extensions)
+    all_images = [f for f in os.listdir(src_dir)
+                  if os.path.isfile(os.path.join(src_dir, f)) and f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+
+    random.seed(123)
+    random.shuffle(all_images)
+
+    total = len(all_images)
+    train_end = int(train_ratio * total)
+    val_end = train_end + int(val_ratio * total)
+
+    splits = {
+        'train': all_images[:train_end],
+        'val': all_images[train_end:val_end],
+        'test': all_images[val_end:]
+    }
+
+    for split, images in splits.items():
+        for image in images:
+            src = os.path.join(src_dir, image)
+            dst = os.path.join(base_dir, split, category, image)
+            shutil.copy2(src, dst)
+
+# Apply the function to both categories
+for category in categories:
+    split_and_copy(category)
+
+
+
+
+
+
+
+# Load Data
+
+batch_size = 15
+img_height = 244
+img_width = 244
+
+data_dir = '/content/drive/MyDrive/ChestXRaySplit'
+
+train_ds = tf.keras.utils.image_dataset_from_directory(
+    os.path.join(data_dir, 'train'),
+    image_size=(img_height, img_width),
+    batch_size=batch_size,
+    shuffle=True
+)
+
+val_ds = tf.keras.utils.image_dataset_from_directory(
+    os.path.join(data_dir, 'val'),
+    image_size=(img_height, img_width),
+    batch_size=batch_size,
+    shuffle=True
+)
+
+test_ds = tf.keras.utils.image_dataset_from_directory(
+    os.path.join(data_dir, 'test'),
+    image_size=(img_height, img_width),
+    batch_size=batch_size,
+    shuffle=False
+)
+
+class_names = train_ds.class_names
+print("Class Names:", class_names)
+
+# Check shapes
+print("\nTraining Batch")
+for img, label in train_ds.take(1):
+    print(img.shape, label.shape)
+
+print("\nValidation Batch")
+for img, label in val_ds.take(1):
+    print(img.shape, label.shape)
+
+print("\nTest Batch")
+for img, label in test_ds.take(1):
+    print(img.shape, label.shape)
+
+
+
+
+
+
+
+# Visualise Data
+
+# Visualize training set
+fig = plt.figure(figsize=(10, 5))
+fig.suptitle('Training Set (Batch 1)', fontsize=16)
+for images, labels in train_ds.take(1):  # First batch of the training set
+    for i in range(15):
+        ax = plt.subplot(3, 5, i + 1)  # 3 rows, 5 columns
+        plt.imshow(images[i].numpy().astype("uint8"))
+        plt.title(class_names[labels[i].numpy()])  # Convert label to int and map to class name
+        plt.axis("off")
+
+plt.show()
+
+# Visualize test set
+fig = plt.figure(figsize=(10, 5))
+fig.suptitle('Test Set (Batch 1)', fontsize=16)
+for images, labels in test_ds.take(1):  # First batch of the test set
+    for i in range(15):
+        ax = plt.subplot(3, 5, i + 1)  # 3 rows, 5 columns
+        plt.imshow(images[i].numpy().astype("uint8"))
+        plt.title(class_names[labels[i].numpy()])  # Convert label to int and map to class name
+        plt.axis("off")
+
+plt.show()
+
+# Function to get class distribution
+def get_class_distribution(dataset):
+    class_counts = {class_name: 0 for class_name in class_names}
+
+    # Iterate through the dataset and count instances for each class
+    for images, labels in dataset:
+        for label in labels:
+            class_name = class_names[label.numpy()]
+            class_counts[class_name] += 1
+
+    return class_counts
+
+# Get class distribution for each dataset
+train_class_counts = get_class_distribution(train_ds)
+val_class_counts = get_class_distribution(val_ds)
+test_class_counts = get_class_distribution(test_ds)
+
+# Plotting the distributions
+labels = list(class_names)
+train_values = list(train_class_counts.values())
+val_values = list(val_class_counts.values())
+test_values = list(test_class_counts.values())
+
+x = np.arange(len(labels))  # the label locations
+width = 0.25  # the width of the bars
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+rects1 = ax.bar(x - width, train_values, width, label='Train')
+rects2 = ax.bar(x, val_values, width, label='Validation')
+rects3 = ax.bar(x + width, test_values, width, label='Test')
+
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_xlabel('Class')
+ax.set_ylabel('Number of Images')
+ax.set_title('Class Distribution among Train, Validation, and Test datasets')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+# Display the plot
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+
+# model Training
+
+# Check for GPU availability
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+
+try:
+  # Specify an appropriate GPU if available.
+  tf.config.set_visible_devices(tf.config.list_physical_devices('GPU')[0], 'GPU')
+  logical_gpus = tf.config.list_logical_devices('GPU')
+  print(len(logical_gpus), "Logical GPU(s) are available.")
+except IndexError:
+  print("No GPUs found.")
+
+# Optimizing data loading with caching and prefetching
+AUTOTUNE = tf.data.AUTOTUNE
+train_ds = train_ds.cache().prefetch(buffer_size=AUTOTUNE)
+val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+test_ds = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
+
+num_classes = 2  # Assuming there are 2 classes: 'NORMAL' and 'PNEUMONIA'
+
+
+
+
+
+# Defining the model
+model = tf.keras.Sequential([
+    tf.keras.layers.Rescaling(1./255),
+    tf.keras.layers.Conv2D(15, 3, activation='relu'),
+    tf.keras.layers.MaxPooling2D(),
+    tf.keras.layers.Conv2D(15, 3, activation='relu'),
+    tf.keras.layers.MaxPooling2D(),
+    tf.keras.layers.Conv2D(15, 3, activation='relu'),
+    tf.keras.layers.MaxPooling2D(),
+    tf.keras.layers.Conv2D(15, 3, activation='relu'),
+    tf.keras.layers.MaxPooling2D(),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(256, activation='relu'),
+    tf.keras.layers.Dense(num_classes)
+])
+
+# Compile the model
+model.compile(
+  optimizer='adam',
+  loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+  metrics=['accuracy']
+)
+
+
+
+
+
+# Train the model
+history = model.fit(
+  train_ds,
+  validation_data=val_ds,
+  epochs=15
+)
+
+# Model summary
+model.summary()
+
+# Plot accuracy and validation accuracy over epochs
+plt.plot(history.history['accuracy'], label='accuracy')
+plt.plot(history.history['val_accuracy'], label='val_accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.ylim([0.5, 1])
+plt.legend(loc='lower right')
+plt.title('Training and Validation Accuracy')
+plt.show()
+
+# Evaluate the model
+y_prediction = model.predict(test_ds)
+y_prediction = np.argmax(y_prediction, axis=1)
+
+# Gather true labels for test dataset
+y_labels = np.array([])
+for image_batch, labels_batch in test_ds:
+    y_labels = np.append(y_labels, labels_batch.numpy())
+
+# Calculate confusion matrix
+result = confusion_matrix(y_labels, y_prediction)
+print("Confusion Matrix:\n", result)
+
+# Optionally, plot the confusion matrix
+import seaborn as sns
+plt.figure(figsize=(8, 6))
+sns.heatmap(result, annot=True, fmt='d', cmap='Blues', xticklabels=class_names, yticklabels=class_names)
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.show()
+
+
+# Export the Model
+
+# Save the model to disk
+model.save('/content/drive/MyDrive/ChestRay_CNN.keras')
+
+# loading model
+(only when model is already trained and we wish to use that one)
+
+# loading the model above from .keras file
+# model = tf.keras.models.load_model('/content/drive/MyDrive/ChestRay_CNN.keras')
+
+# Testing based on user stories
+
+## user story 1
+
+from PIL import Image
+from IPython.display import display
+
+def test_story_1(patient_record, auto_diagnosis):
+
+    print("=== Story 1: Expert Clinician Reviews Patient Case ===")
+    print(f"Patient Name: {patient_record['name']}")
+    print(f"Age: {patient_record['age']}")
+    print(f"Symptoms: {patient_record['symptoms']}")
+
+    # Display the X-ray image
+    try:
+        print("Displaying the X-ray image...")
+        display(patient_record['xray'])
+    except Exception as e:
+        print("Error displaying image:", e)
+
+    print(f"Automated Diagnosis: {auto_diagnosis}")
+
+    response = input("Do you confirm the automated diagnosis? (yes/no): ").strip().lower()
+    clinician_decision = response == "yes"
+    if not clinician_decision and response != "no":
+        print("Invalid input. Defaulting to rejection.")
+
+    treatment = "Prescribe antibiotics" if clinician_decision else "No treatment needed. Consider further evaluation."
+
+    print(f"Clinician Confirmation: {'Confirmed' if clinician_decision else 'Rejected'}")
+    print(f"Treatment Recommendation: {treatment}")
+    print("=== End of Story 1 ===\n")
+
+try:
+    sample_image = Image.open("/content/drive/MyDrive/ChestXRaySplit/val/PNEUMONIA/xray_p_007.jpeg")
+except Exception as e:
+    print("Error loading image. Please check the file path and permissions.")
+    sample_image = None
+
+patient_record_dummy = {
+    "name": "subhan malik",
+    "age": 24,
+    "symptoms": "Fever, cough, shortness of breath",
+    "xray": sample_image
+}
+
+auto_diagnosis = "Pneumonia Suspected"
+test_story_1(patient_record_dummy, auto_diagnosis)
+
+## User story 2
+
+def test_story_2():
+
+    print("=== Story 2: Health Worker Uploads Patient Data ===")
+
+    # Prompt the user (health worker) for patient details.
+    name = input("Enter patient's name: ")
+    age = input("Enter patient's age: ")
+    symptoms = input("Enter patient's symptoms: ")
+    xray_path = "/content/drive/MyDrive/ChestXRaySplit/val/PNEUMONIA/xray_p_007.jpeg" #input("Enter path to the patient's X-ray image file: ")
+
+    # Attempt to open the X-ray image.
+    try:
+        xray_image = Image.open(xray_path)
+        print("X-ray image loaded successfully.")
+    except Exception as e:
+        print("Error loading X-ray image:", e)
+        xray_image = None
+
+    # Create a patient record.
+    patient_record = {
+        "name": name,
+        "age": age,
+        "symptoms": symptoms,
+        "xray": xray_image
+    }
+
+    print("Patient record created successfully.")
+    print("Patient Record:")
+    print(f"  Name: {patient_record['name']}")
+    print(f"  Age: {patient_record['age']}")
+    print(f"  Symptoms: {patient_record['symptoms']}")
+    print("=== End of Story 2 ===\n")
+
+    return patient_record
+
+patient_record = test_story_2()
+
+## user story 3
+
+def automated_pneumonia_detection(patient_record, model, class_names):
+    image_path = patient_record.get("image_path")
+
+    if not image_path or not os.path.exists(image_path):
+        print("Error: X-ray image not found.")
+        return None
+
+    try:
+        # Load and display original image
+        print("\nPatient's Chest X-ray:")
+        img = Image.open(image_path)
+        display(img)
+
+        # Preprocess image exactly as the model expects
+        img = img.convert('RGB').resize((224, 224))  # Standard size for most CNN models
+        img_array = tf.keras.preprocessing.image.img_to_array(img)
+        img_array = tf.expand_dims(img_array, 0)  # Create batch dimension
+        img_array = img_array / 255.0  # Normalize pixel values
+
+        # Verify model input shape compatibility
+        expected_shape = model.input_shape[1:]  # Get (height, width, channels)
+        if img_array.shape[1:] != expected_shape:
+            print(f"\nWarning: Resizing image to model's expected shape {expected_shape}")
+            img_array = tf.image.resize(img_array, expected_shape[:2])
+
+        # Make prediction
+        predictions = model.predict(img_array)
+        predicted_class = np.argmax(predictions, axis=1)[0]
+        predicted_label = class_names[predicted_class]
+        confidence = np.max(predictions) * 100
+
+        # Update patient record
+        patient_record["diagnosis"] = predicted_label
+        patient_record["confidence"] = f"{confidence:.2f}%"
+        patient_record["flag"] = "Urgent" if predicted_label.lower() == "pneumonia" else "Normal"
+
+        # Display results
+        print("\nDiagnosis Results:")
+        print(f"• Prediction: {predicted_label} ({confidence:.2f}% confidence)")
+        print(f"• Clinical Flag: {patient_record['flag']}")
+
+        return patient_record
+
+    except Exception as e:
+        print(f"\nError during processing: {str(e)}")
+        return None
+
+patient_record = {
+    "name": "ali hassan",
+    "age": 35,
+    "symptoms": ["shortness of breath", "fever"],
+    "image_path": "/content/drive/MyDrive/ChestXRaySplit/val/PNEUMONIA/xray_p_007.jpeg"
+}
+
+result = automated_pneumonia_detection(patient_record, model, class_names)
+if result:
+    print("\nUpdated Patient Record:")
+    for k, v in result.items():
+        if k != "image_path":
+            print(f"{k.upper()}: {v}")
